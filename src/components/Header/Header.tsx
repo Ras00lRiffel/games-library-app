@@ -1,5 +1,5 @@
 import PS from "../../assets/images/ps logo.jpg";
-import "./Header.css";
+import "./styles.css";
 
 function Header() {
   return (
