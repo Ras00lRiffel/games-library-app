@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["src/components/Header/styles.scss"],"names":[],"mappings":"AAAA;EACI","sourcesContent":[".app-header {\r\n    align-items: center;\r\n}"],"file":"src/components/Header/styles.css"}
