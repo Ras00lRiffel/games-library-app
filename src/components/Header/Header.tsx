@@ -1,10 +1,14 @@
-import PS from "../../assets/images/ps logo.png";
-import "./styles.css";
+import PS from "../../assets/images/play logo.png";
 
 function Header() {
   return (
     <header className="app-header">
-      <img src={PS} alt="Playstation Logo" />
+      <div className="header-logo">
+        <img src={PS} alt="Playstation Logo" />
+      </div>
+      <div className="header-title">
+        <h1>Games Library</h1>
+      </div>
     </header>
   );
 }
