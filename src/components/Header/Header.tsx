@@ -1,4 +1,4 @@
-import PS from "../../assets/images/ps logo.jpg";
+import PS from "../../assets/images/ps logo.png";
 import "./styles.css";
 
 function Header() {

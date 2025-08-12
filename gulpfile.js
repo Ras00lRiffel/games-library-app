@@ -1,20 +1,15 @@
-import gulp from 'gulp';
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
+// gulpfile.js
+import gulpDartSass from 'gulp-dart-sass';
+import { src, dest, watch } from 'gulp';
+import rename from 'gulp-rename';
 
-const sass = gulpSass(dartSass);
-
-// Compile SCSS and place CSS in the same folder (no source maps)
-export function styles() {
-  return gulp.src(['**/*.scss', '!**/_*.scss']) // exclude partials starting with "_"
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(file => file.base)); // same folder as SCSS
+function buildStyles() {
+  return src('src/**/*.scss', { base: './' })
+    .pipe(gulpDartSass().on('error', gulpDartSass.logError))
+    .pipe(rename({ extname: '.css' }))
+    .pipe(dest('./'));
 }
 
-// Watch for changes and recompile
-export function watchFiles() {
-  gulp.watch(['**/*.scss', '!**/_*.scss'], styles);
+export default function() {
+  watch('src/**/*.scss', buildStyles);
 }
-
-// Default task
-export default gulp.series(styles, watchFiles);

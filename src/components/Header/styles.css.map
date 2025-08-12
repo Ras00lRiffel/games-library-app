@@ -1,1 +1,0 @@
-{"version":3,"sourceRoot":"","sources":["src/components/Header/styles.scss"],"names":[],"mappings":"AAAA;EACI;;AACA;EACI;EACA","sourcesContent":[".app-header {\r\n    text-align: center;\r\n    img {\r\n        max-width: 500px;\r\n        width: 100%;\r\n    }\r\n}"],"file":"src/components/Header/styles.css"}
