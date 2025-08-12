@@ -24,8 +24,29 @@
   font-size: 16px;
 }
 
+.card {
+  border: none;
+}
+.card .card-img-top {
+  width: 100%;
+}
+.card .card-body {
+  background-color: #e0e0e0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 body {
-  background-color: rgb(212, 212, 212);
+  background-image: url("../src/assets/images/bgImage.jpg");
+  min-height: 100vh;
   margin: 0 !important;
   font-family: "Open sans", sans-serif;
+}
+body::before {
+  content: "";
+  position: fixed; /* fixed makes it stay in place while scrolling */
+  inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none; /* ensures clicks pass through */
+  z-index: -1;
 }

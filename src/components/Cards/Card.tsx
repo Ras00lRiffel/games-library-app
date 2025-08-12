@@ -1,11 +1,16 @@
 interface CardsProps {
   title: string;
   imageUrl: string;
-  description: string;
+  description?: string;
   altText?: string; // Optional alt text for the image
 }
 
-const Card = ({ title, imageUrl, description, altText }: CardsProps) => {
+const Card = ({
+  title,
+  imageUrl,
+  description,
+  altText = "Image Title",
+}: CardsProps) => {
   return (
     <div className="card">
       <img src={imageUrl} className="card-img-top" alt={altText} />
