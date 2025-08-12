@@ -12,11 +12,17 @@ const Card = ({
   altText = "Image Title",
 }: CardsProps) => {
   return (
-    <div className="card">
-      <img src={imageUrl} className="card-img-top" alt={altText} />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
+    <div className="card flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <img src={imageUrl} className="card-img-top" alt={altText} />
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+          </div>
+        </div>
+        <div className="flip-card-back">
+          <p className="card-text">{description}</p>
+        </div>
       </div>
     </div>
   );

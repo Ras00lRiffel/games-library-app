@@ -69,6 +69,7 @@ const Cards = () => {
           <Card
             title="Hogwarts Legacy"
             imageUrl={HogwartsLegacyPromotionalPhotoHorizontal}
+            description="Hours: 41h"
           />
         </div>
         <div className="col-md-4 mb-4">
@@ -93,6 +94,7 @@ const Cards = () => {
             title="Need for Speed Heat"
             imageUrl={NFSHeat}
             altText="Game Title 12 Image"
+            description="Hours: 39h"
           />
         </div>
         <div className="col-md-4 mb-4">
@@ -141,7 +143,12 @@ const Cards = () => {
           <Card title="WRC 5" imageUrl={WRC5} altText="Game Title 19 Image" />
         </div>
         <div className="col-md-4 mb-4">
-          <Card title="WRC 7" imageUrl={WRC7} altText="Game Title 20 Image" />
+          <Card
+            title="WRC 7"
+            imageUrl={WRC7}
+            altText="Game Title 20 Image"
+            description="Hello World"
+          />
         </div>
       </div>
     </div>
