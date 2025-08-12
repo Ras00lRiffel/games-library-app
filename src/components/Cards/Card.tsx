@@ -8,7 +8,7 @@ interface CardsProps {
 const Card = ({
   title,
   imageUrl,
-  description,
+  description = "No description available",
   altText = "Image Title",
 }: CardsProps) => {
   return (

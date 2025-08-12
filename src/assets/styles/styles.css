@@ -72,6 +72,14 @@
   color: white;
   transform: rotateY(180deg);
   padding: 20px;
+  margin: auto;
+}
+.flip-card .flip-card-back p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 body {
