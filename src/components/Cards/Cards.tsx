@@ -6,7 +6,7 @@ import CODAW from "../../assets/images/COD AW.jpg";
 import farCryPrimal from "../../assets/images/far cry primal.jpg";
 import godOfWar from "../../assets/images/god of war.avif";
 import GrandTheftAutoV from "../../assets/images/Grand-Theft-Auto-V-.jpg";
-import HogwartsLegacyPromotionalPhotoHorizontal from "../../assets/images/Hogwarts_Legacy_promotional_photo_horizontal.jpg";
+import HogwartsLegacy from "../../assets/images/Hogwarts_Legacy.jpg";
 import horionZeroDawn from "../../assets/images/horion zero dawn.avif";
 import itTakesTwo from "../../assets/images/it takes two.jpg";
 import mortalKombatX from "../../assets/images/mortal kombat x.avif";
@@ -68,7 +68,7 @@ const Cards = () => {
         <div className="col-md-4 mb-4">
           <Card
             title="Hogwarts Legacy"
-            imageUrl={HogwartsLegacyPromotionalPhotoHorizontal}
+            imageUrl={HogwartsLegacy}
             description="Hours: 41h"
           />
         </div>
