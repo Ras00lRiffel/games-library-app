@@ -1,6 +1,6 @@
 import PS from "../../assets/images/play logo.png";
 
-function Header() {
+const Header = () => {
   return (
     <header className="app-header">
       <div className="header-logo">
@@ -11,6 +11,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;
