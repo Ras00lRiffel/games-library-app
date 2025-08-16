@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import mysql from 'mysql';
 
 const app = express();
@@ -10,6 +11,7 @@ const db = mysql.createConnection({
 });
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
     const sql = 'SELECT * FROM games';
