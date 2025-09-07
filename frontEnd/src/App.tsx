@@ -15,7 +15,6 @@ function App() {
     const fetchGames = async () => {
       try {
         const res = await axios.get("http://localhost:8800/");
-        console.log(res);
         setGame(res.data);
       } catch (error) {
         console.error("Error fetching games:", error);

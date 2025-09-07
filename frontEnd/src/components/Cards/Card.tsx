@@ -15,7 +15,11 @@ const Card = ({
     <div className="card flip-card">
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <img src={imageUrl} className="card-img-top" alt={altText} />
+          <img
+            src={"http://localhost:8800" + imageUrl}
+            className="card-img-top"
+            alt={altText}
+          />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
           </div>

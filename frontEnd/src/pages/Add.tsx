@@ -1,29 +1,60 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
+  const [file, setFile] = useState<File | null>(null);
   const [game, setGame] = useState({
     title: "",
-    imageUrl: "",
+    image_url: "",
     description: "",
-    cover: null,
+    hours: null,
   });
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
-    setGame((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const navigate = useNavigate();
+
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, files } = e.target;
+    // debugger;
+    if (name === "image_url" && files && files[0]) {
+      // Use the file directly, not from state
+      const selectedFile = files[0];
+      setFile(selectedFile);
+
+      try {
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+
+        const res = await fetch("http://localhost:8800/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+        console.log("File uploaded:", data.url);
+
+        // Update game with the uploaded file URL
+        setGame((prev) => ({ ...prev, image_url: data.url }));
+      } catch (error) {
+        console.error("File upload failed", error);
+      }
+    } else {
+      // For text inputs (title, description, hours)
+      setGame((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleClick = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    console.log(game);
     try {
-      await axios.post("http://localhost:8800/games", game);
-      alert("Game has been added!! :).");
+      await axios.post("http://localhost:8800/add", game);
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
-  console.log(game);
   return (
     <div className="text-center add-page">
       <h1>Add a new game</h1>
@@ -44,14 +75,14 @@ const Add = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="imageUrl" className="form-label">
+                <label htmlFor="image_url" className="form-label">
                   Image URL
                 </label>
                 <input
-                  type="text"
+                  type="file"
                   className="form-control"
-                  id="imageUrl"
-                  name="imageUrl"
+                  id="image_url"
+                  name="image_url"
                   onChange={handleChange}
                 />
               </div>
@@ -59,23 +90,23 @@ const Add = () => {
                 <label htmlFor="description" className="form-label">
                   Description
                 </label>
-                <textarea
+                <input
                   className="form-control"
                   id="description"
-                  rows={3}
+                  //rows={3}
                   name="description"
                   onChange={handleChange}
-                ></textarea>
+                ></input>
               </div>
               <div className="mb-3">
-                <label htmlFor="cover" className="form-label">
-                  Game Cover
+                <label htmlFor="hours" className="form-label">
+                  Game hours
                 </label>
                 <input
-                  type="file"
+                  type="number"
                   className="form-control"
-                  id="cover"
-                  name="cover"
+                  id="hours"
+                  name="hours"
                   onChange={handleChange}
                 />
               </div>
