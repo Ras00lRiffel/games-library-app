@@ -3,11 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Add = () => {
-  const [file, setFile] = useState<File | null>(null);
   const [game, setGame] = useState({
     title: "",
     image_url: "",
-    description: "",
+    description: null,
     hours: null,
   });
 
@@ -15,11 +14,10 @@ const Add = () => {
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
-    // debugger;
+
     if (name === "image_url" && files && files[0]) {
       // Use the file directly, not from state
       const selectedFile = files[0];
-      setFile(selectedFile);
 
       try {
         const formData = new FormData();

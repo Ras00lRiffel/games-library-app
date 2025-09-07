@@ -35,6 +35,7 @@ const Cards = ({ games }: Games) => {
               title={game.title}
               imageUrl={game.image_url}
               altText={game.description}
+              description={game.description}
             />
           </div>
         ))}
