@@ -68,4 +68,29 @@ app.post("/upload", upload.single("file"), (req, res) => {
   res.json({ url: fileUrl });
 });
 
+app.delete("/games/:id", (req, res) => {
+  const gameId = req.params.id;
+  const sql = "DELETE FROM games WHERE id = ?";
+
+  db.query(sql, [gameId], (err, result) => {
+    if (err) {
+            return res.json(err);
+        }
+        return res.json({ message: 'Game has been deleted!' });
+      });
+});
+
+app.put("/games/:id", (req, res) => {
+  const gameId = req.params.id;
+  const { title, hours, description, image_url } = req.body;
+  const sql = "UPDATE games SET title = ?, hours = ?, description = ?, image_url = ? WHERE id = ?";
+
+  db.query(sql, [title, hours, description, image_url, gameId], (err, result) => {
+    if (err) {
+            return res.json(err);
+        }
+        return res.json({ message: 'Game has been updated!' });
+      }); 
+});
+
 app.use("/uploads", express.static("uploads"));

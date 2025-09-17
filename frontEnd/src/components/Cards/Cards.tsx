@@ -32,6 +32,7 @@ const Cards = ({ games }: Games) => {
         {games.map((game: any) => (
           <div className="col-md-4 mb-4" key={game.id}>
             <Card
+              id={game.id}
               title={game.title}
               imageUrl={game.image_url}
               altText={game.description}
