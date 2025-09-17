@@ -24,9 +24,8 @@ function App() {
   });
   return (
     <div className="App">
-      <Header />
-
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Cards games={games} />} />
           <Route path="/add" element={<Add />} />

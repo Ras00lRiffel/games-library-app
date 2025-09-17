@@ -30,7 +30,6 @@ const Update = () => {
         });
 
         const data = await res.json();
-        console.log("File uploaded:", data.url);
 
         // Update game with the uploaded file URL
         setGame((prev) => ({ ...prev, image_url: data.url }));
